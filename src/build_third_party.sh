@@ -12,14 +12,8 @@ THREADS=8
 # We expect to be invoked from either the top level directory of
 # the repo, or src. We want third party to be at the same level
 # as src.
-if [[ ${PWD} =~ LillyMol$ || ${PWD} =~ LillyMolPrivate$ ]] ; then
-  third_party='third_party'
-elif [[ ${PWD} =~ LillyMol.*/src$ ]] ; then
-  third_party='../third_party'
-else
-  echo "Must be invoked from either LillyMol or LillyMol/src" >&1
-  exit 1
-fi
+script_dir=$(dirname "$0")
+third_party="${script_dir}/../third_party}"
 echo "third_party in ${third_party}"
 # Convert to full path name
 third_party=$(readlink -m ${third_party})
