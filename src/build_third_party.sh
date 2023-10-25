@@ -16,7 +16,7 @@ script_dir=$(dirname "$(readlink -f "$0")")
 third_party="${script_dir}/../third_party}"
 echo "third_party in ${third_party}"
 # Convert to full path name
-third_party=$(readlink -m ${third_party})
+third_party=$(readlink -f ${third_party})
 
 if [[ ! -d "${third_party}" ]] ; then
   mkdir -p "${third_party}"
