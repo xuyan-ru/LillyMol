@@ -12,7 +12,7 @@ THREADS=8
 # We expect to be invoked from either the top level directory of
 # the repo, or src. We want third party to be at the same level
 # as src.
-script_dir=$(dirname "$0")
+script_dir=$(dirname "$(readlink -f "$0")")
 third_party="${script_dir}/../third_party}"
 echo "third_party in ${third_party}"
 # Convert to full path name
